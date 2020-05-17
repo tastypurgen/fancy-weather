@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-image: linear-gradient(rgba(18, 18, 50, 0.50) 100%, 
+  rgba(18, 18, 50, 0.50) 100%), 
+  url('/img/bg-image.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
