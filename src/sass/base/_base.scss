@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 26px;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -15,8 +19,6 @@ body {
   background-image: linear-gradient(rgba(18, 18, 50, 0.5) 100%, rgba(18, 18, 50, 0.5) 100%), url("/img/bg-image.png");
   background-size: cover;
   background-repeat: no-repeat;
-
-  font-size: 24px;
   max-width: 1400px;
   padding: 40px 80px;
   margin: 0 auto;

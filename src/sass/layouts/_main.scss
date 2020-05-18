@@ -1,0 +1,16 @@
+.main {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-around;
+
+  .display {
+    &__city {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+#map {
+  width: 400px;
+  height: 400px;
+}
