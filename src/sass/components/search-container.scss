@@ -1,0 +1,54 @@
+.search-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 44px;
+  margin-left: auto;
+
+  .search-input {
+    box-sizing: border-box;
+    padding: 5px 0 5px 20px;
+    margin: 0;
+    background-color: rgba(76, 82, 85, 0.4);
+    border: 1px solid rgba(228, 227, 227, 0.2);
+    border-right: 0;
+    width: 220px;
+    height: 44px;
+    border-radius: 5px 0 0 5px;
+    color: #fff;
+    font-family: Montserrat;
+    font-size: 16px;
+    outline: none;
+    &::placeholder {
+      color: rgb(197, 197, 197);
+    }
+  }
+
+  .search-voice {
+    width: 55px;
+    height: 44px;
+    background-image: url("/img/mic.svg");
+    background-size: 14px;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-color: rgba(76, 82, 85, 0.4);
+    border-top: 1px solid rgba(228, 227, 227, 0.2);
+    border-bottom: 1px solid rgba(228, 227, 227, 0.2);
+    cursor: pointer;
+  }
+
+  .search-btn {
+    width: 100px;
+    height: 44px;
+    border-radius: 0 5px 5px 0;
+    border: 0;
+    background: rgba(174, 181, 185, 0.5);
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 44px;
+    outline: none;
+  }
+}

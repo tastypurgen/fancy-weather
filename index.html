@@ -11,19 +11,20 @@
 <body>
   <header class="header">
     <div class="header__control">
-      <div class="header__reload"></div>
-      <select class="header__lang" name="lang" id="lang">
+      <div class="header__reload btn"></div>
+      <select class="header__lang btn" name="lang" id="lang">
         <option value="en">EN</option>
         <option value="ru">RU</option>
         <option value="by">BY</option>
       </select>
       <div class="header__degrees">
-        <div class="header__degrees__btn">°F<i></i></div>
-        <div class="header__degrees__btn">°C<i></i></div>
+        <div class="header__degrees__btn header__degrees__btn-f btn">°F</div>
+        <div class="header__degrees__btn btn">°C</div>
       </div>
     </div>
     <form class="search-container">
-      <input type="text" name="city" class="search-input" placeholder="Search a city">
+      <input type="text" name="city" class="search-input" placeholder="Search a city" autocomplete="off">
+      <div class="search-voice"></div>
       <button class="search-btn btn" type="submit">Search</button>
     </form>
   </header>
