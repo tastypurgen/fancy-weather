@@ -1,4 +1,8 @@
-export const weatherKey = '674f68d0b740acd480f2947218ae03ef';
-export const mapKey = 'pk.eyJ1IjoidGFzdHlwdXJnZW4iLCJhIjoiY2thY2s4N2FkMWg5ZDJ0bWttZTdqazNnOSJ9.zjl6MO20tLRLgYCGqmXQqw';
+export const weatherKey = 'f37843bd6ccdfc2d100eff2f99210f7b';
 
-export default weatherKey;
+export const mapKey = 'pk.eyJ1Ijoibmlqb2dvdDUwNiIsImEiOiJja2FlOHh5cWcwMHNwMnlvZ2M3OXU1ZDdoIn0.8PerVZOXYoSi2ZXVO_kLXA';
+
+export const ipKey = 'b4e8e1c3a9acdf';
+export const ipReq = 'https://ipinfo.io/json?token=b4e8e1c3a9acdf';
+
+export default { weatherKey, mapKey, ipKey };
