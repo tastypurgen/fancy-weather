@@ -4,16 +4,13 @@
   "description": "RSSchool task",
   "private": true,
   "dependencies": {
-    "fsevents": "^1.2.12",
-    "node-sass": "^4.14.1"
+    "axios": "^0.19.2",
+    "mapbox-gl": "^1.10.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
-    "axios": "^0.19.2",
-    "regenerator-runtime": "^0.13.5",
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
     "autoprefixer": "^9.7.6",
-    "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.5.3",
@@ -21,6 +18,7 @@
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
     "file-loader": "^6.0.0",
+    "fsevents": "^1.2.12",
     "html-loader": "^1.0.0",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^26.0.1",
@@ -29,6 +27,8 @@
     "postcss-loader": "^3.0.0",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.2.1",
+    "ts-loader": "^7.0.4",
+    "typescript": "^3.9.2",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0"
