@@ -27,7 +27,7 @@ export default async function getWeather() {
     temperature: parseInt(response.data.main.temp, 10).toString() + '°',
     icon: response.data.weather[0].icon,
     summary: response.data.weather[0].main,
-    feel: parseInt(response.data.main.temp, 10).toString(),
+    feel: parseInt(response.data.main.feels_like, 10).toString(),
     wind: response.data.wind.speed,
     humidity: response.data.main.humidity
   }
