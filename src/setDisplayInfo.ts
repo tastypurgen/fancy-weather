@@ -13,10 +13,10 @@ const windEl = document.querySelector('.wind span')
 const humidityEl = document.querySelector('.humidity span')
 
 async function setDisplayInfo() {
-  const { city, state, country } = await getLocationInfo();
-  const { id, temperature, icon, summary, feel, wind, humidity } = await getCurrentWeather();
+  const { city, country } = await getLocationInfo();
+  const { id, temperature, summary, feel, wind, humidity } = await getCurrentWeather();
 
-  cityEl.textContent = `${city}, ${state}, ${country}`
+  cityEl.textContent = `${city}, ${country}`
   dateEl.textContent = new Date().toLocaleDateString('default', { weekday: 'short', month: 'long', day: 'numeric' })
   setInterval(() => timeEl.textContent = new Date().toLocaleTimeString('ru'), 1000)
   temperatureEl.textContent = temperature
@@ -26,7 +26,6 @@ async function setDisplayInfo() {
   feelEl.textContent = feel
   windEl.textContent = wind
   humidityEl.textContent = humidity
-
 }
 
 export default setDisplayInfo;
