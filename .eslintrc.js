@@ -20,8 +20,8 @@ module.exports = {
   ],
   rules: {
     "import/extensions": [
-      "error",
-      "ignorePackages",
+      // "error",
+      // "ignorePackages",
       {
         "js": "never",
         "jsx": "never",

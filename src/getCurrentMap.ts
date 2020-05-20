@@ -1,4 +1,5 @@
-import getCurrentCity from './getCurrentCity';
+/* eslint-disable no-console */
+import getCurrentCity from './getIpInfo';
 import { mapKey } from './constants';
 
 export default async function getCurrentMap() {
@@ -22,4 +23,6 @@ export default async function getCurrentMap() {
   const marker = new mapboxgl.Marker()
     .setLngLat([longitude, latitude])
     .addTo(map);
+
+  console.log('Getting MAP');
 }

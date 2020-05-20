@@ -1,5 +1,10 @@
-// import getCurrentCity from './getCurrentCity';
-// import getCurrentWeather from './getCurrentWeather';
+import setDislayInfo from './setDisplayInfo';
 import getCurrentMap from './getCurrentMap';
 
 getCurrentMap();
+setDislayInfo();
+
+// (async function index() {
+//   console.log(object);
+// }());
+
