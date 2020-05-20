@@ -15,15 +15,17 @@ export default async function getWeather() {
   console.log(response.data);
 
   let weather: {
+    id: number,
     temperature: string,
     icon: string,
     summary: string,
     feel: string,
     wind: string,
-    humidity: string
+    humidity: string,
   }
 
   weather = {
+    id: response.data.weather[0].id,
     temperature: parseInt(response.data.main.temp, 10).toString() + '°',
     icon: response.data.weather[0].icon,
     summary: response.data.weather[0].main,
