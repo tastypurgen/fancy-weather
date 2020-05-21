@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
+import axios from 'axios';
 import { ipReq } from './constants';
 
-const axios = require('axios');
 
 let ipInfo: {
   country: string,
@@ -11,30 +11,17 @@ let ipInfo: {
   longitude: number,
   postal: number,
   timezone: string,
-}
+};
 
 export default async function getIP() {
-  // prevent several requests
-  if (!ipInfo) {
-    // ipInfo = {
-    //   country: 'BY',
-    //   region: 'Brest',
-    //   city: 'Pinsk',
-    //   latitude: 52.12,
-    //   longitude: 26.1,
-    //   postal: 225708,
-    //   timezone: 'Europe/Minsk',
-    // };
-
+  if (typeof ipInfo === 'undefined') {
     const req = await axios.get(ipReq);
-    let location = req.data.loc.match(/([^,]+)/g)
+    const location = req.data.loc.match(/([^,]+)/g);
     ipInfo = {
       country: req.data.country,
       region: req.data.region,
       city: req.data.city,
-      // широта
       latitude: location[0],
-      // долгота
       longitude: location[1],
       postal: req.data.postal,
       timezone: req.data.timezone,

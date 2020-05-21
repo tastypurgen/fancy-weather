@@ -7,4 +7,3 @@ setDislayInfo();
 // (async function index() {
 //   console.log(object);
 // }());
-

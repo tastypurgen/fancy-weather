@@ -12,7 +12,7 @@ module.exports = {
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 11,
     sourceType: 'module',
   },
   plugins: [
@@ -20,8 +20,8 @@ module.exports = {
   ],
   rules: {
     "import/extensions": [
-      // "error",
-      // "ignorePackages",
+      "error",
+      "ignorePackages",
       {
         "js": "never",
         "jsx": "never",
