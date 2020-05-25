@@ -2,33 +2,26 @@
 import axios from 'axios';
 import { ipReq } from './constants';
 
+const ipInfo: any = axios.get(ipReq).then(({ data }) => {
+  const location = data.loc.match(/([^,]+)/g);
 
-let ipInfo: {
-  country: string,
-  region: string,
-  city: string,
-  latitude: number,
-  longitude: number,
-  postal: number,
-  timezone: string,
-};
+  return {
+    country: data.country,
+    region: data.region,
+    city: data.city,
+    latitude: location[0],
+    longitude: location[1],
+    postal: data.postal,
+    timezone: data.timezone,
+  };
+}).catch(() => ({
+  country: '',
+  region: '',
+  city: '',
+  latitude: 0,
+  longitude: 0,
+  postal: 0,
+  timezone: '',
+}));
 
-export default async function getIP() {
-  if (typeof ipInfo === 'undefined') {
-    const req = await axios.get(ipReq);
-    const location = req.data.loc.match(/([^,]+)/g);
-    ipInfo = {
-      country: req.data.country,
-      region: req.data.region,
-      city: req.data.city,
-      latitude: location[0],
-      longitude: location[1],
-      postal: req.data.postal,
-      timezone: req.data.timezone,
-    };
-
-    console.log('Getting IP Info:');
-    console.log(ipInfo);
-  }
-  return ipInfo;
-}
+export default () => ipInfo;
