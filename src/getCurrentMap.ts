@@ -1,12 +1,21 @@
 /* eslint-disable no-console */
 import getCurrentCity from './getIpInfo';
 import { mapKey } from './constants';
+import convertToMinutes from './utils';
+
+const latitudeEl = document.querySelector('.latitude span');
+const longitudeEl = document.querySelector('.longitude span');
 
 export default async function getCurrentMap() {
   const ipInfo = await getCurrentCity();
+  const { latitude, longitude } = ipInfo;
+  const latDeg = latitude.toString().match(/(^[^.]+)/)[0];
+  const latMin = convertToMinutes(latitude);
+  const longDeg = longitude.toString().match(/(^[^.]+)/)[0];
+  const longMin = convertToMinutes(longitude);
 
-  const { latitude } = ipInfo;
-  const { longitude } = ipInfo;
+  latitudeEl.textContent = `${latDeg}° ${latMin}'`;
+  longitudeEl.textContent = `${longDeg}° ${longMin}'`;
 
   // eslint-disable-next-line global-require
   const mapboxgl = require('mapbox-gl');
