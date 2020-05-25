@@ -1,7 +1,7 @@
 import setDislayInfo from './setDisplayInfo';
-import getCurrentMap from './getCurrentMap';
+import getMap from './getMap';
 
-getCurrentMap();
+getMap();
 setDislayInfo();
 
 // (async function index() {

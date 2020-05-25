@@ -34,25 +34,16 @@
         margin: 0 30px;
 
         .day {
+          text-align: center;
           font-weight: 300;
         }
-        .temperature {
-          position: relative;
-          font-size: 2rem;
+        .forecast__weather {
+          display: flex;
 
-          &::after {
-            content: "";
-            background-image: url("/img/weather/clouds1.svg");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
-            width: 100%;
-            height: 100%;
-            top: 3px;
-            left: 40px;
-
-            border-radius: 50%;
-            position: absolute;
+          .temperature {
+            position: relative;
+            font-size: 2rem;
+            margin-right: 5px;
           }
         }
       }
