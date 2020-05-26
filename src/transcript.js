@@ -1,4 +1,4 @@
-const data = {
+export const belWeather = {
   200: 'навальніца з невялікім дажджом',
   201: 'навальніца з дажджом',
   202: 'навальніца з моцным дажджом',
@@ -55,4 +55,8 @@ const data = {
   804: 'пахмурна',
 };
 
-export default data;
+export const weatherDescription = {
+  en: ['Feels like', 'Wind', 'm/s', 'Humidity'],
+  ru: ['Ощущается как', 'Ветер', 'м/с', 'Влажность'],
+  be: ['Aдчуваецца як', 'Вецер', 'м/с', 'Вільготнасць'],
+};

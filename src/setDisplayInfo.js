@@ -2,6 +2,7 @@ import * as moment from 'moment';
 import getWeather from './getWeather';
 import getLocationInfo from './getLocationInfo';
 import iconToDisplay from './iconToDisplay';
+import { belWeather, weatherDescription } from './transcript';
 
 const cityEl = document.querySelector('.display__city span');
 const dateEl = document.querySelector('.display__time span');
@@ -12,6 +13,10 @@ const summaryEl = document.querySelector('.summary');
 const feelEl = document.querySelector('.feels-like span');
 const windEl = document.querySelector('.wind span');
 const humidityEl = document.querySelector('.humidity span');
+const feelVal = document.querySelector('.feels-like span + span');
+const windVal = document.querySelector('.wind span + span');
+const windVal2 = document.querySelector('.wind span + span + span');
+const humidityVal = document.querySelector('.humidity span + span');
 const forecastWeekDays = document.querySelectorAll('.day');
 const forecastElements = document.querySelectorAll('.temperature');
 const forecastIcons = document.querySelectorAll('.icon img');
@@ -23,16 +28,20 @@ async function setDisplayInfo() {
     id, temperature, summary, feel, wind, humidity, d0Temp, d1Temp, d2Temp, d0Icon, d1Icon, d2Icon,
   } = await getWeather();
 
+  moment.locale(localStorage.lang);
   cityEl.textContent = `${city}, ${country}`;
-  dateEl.textContent = new Date().toLocaleDateString('default', { weekday: 'short', month: 'long', day: 'numeric' });
+  dateEl.textContent = moment().format('dd, MMMM DD');
   setInterval(() => { timeEl.textContent = new Date().toLocaleTimeString('ru'); }, 1000);
   temperatureEl.textContent = temperature;
-  iconEl.textContent = `code: ${id.toString()}`;
   iconEl.style.cssText = iconToDisplay(id);
-  summaryEl.textContent = summary;
-  feelEl.textContent = feel;
-  windEl.textContent = wind;
-  humidityEl.textContent = humidity;
+  summaryEl.textContent = localStorage.lang === 'be' ? belWeather[id] : summary;
+  feelEl.textContent = weatherDescription[localStorage.lang][0];
+  windEl.textContent = weatherDescription[localStorage.lang][1];
+  windVal2.textContent = weatherDescription[localStorage.lang][2];
+  humidityEl.textContent = weatherDescription[localStorage.lang][3];
+  feelVal.textContent = feel;
+  windVal.textContent = wind;
+  humidityVal.textContent = humidity;
 
   forecastWeekDays[0].textContent = moment().add(1, 'day').format('dddd');
   forecastWeekDays[1].textContent = moment().add(2, 'day').format('dddd');

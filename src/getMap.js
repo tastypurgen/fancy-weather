@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 import getCurrentCity from './getIpInfo';
 import { mapKey } from './constants';
-import convertToMinutes from './utils';
+import { convertToMinutes } from './utils';
 
-const latitudeEl = document.querySelector('.latitude span');
-const longitudeEl = document.querySelector('.longitude span');
+const latitudeEl = document.querySelector('.latitude');
+const longitudeEl = document.querySelector('.longitude');
 
 export default async function getCurrentMap() {
   const ipInfo = await getCurrentCity();

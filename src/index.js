@@ -1,5 +1,6 @@
 import setDislayInfo from './setDisplayInfo';
 import getMap from './getMap';
+import { setLanguage } from './utils';
 
 const langBtn = document.querySelector('.header__lang');
 
@@ -7,7 +8,8 @@ getMap();
 setDislayInfo();
 
 langBtn.addEventListener('change', (e) => {
-  console.log(e.currentTarget.value);
+  setLanguage(e.target.value);
+  setDislayInfo();
 });
 
 // (async function index() {
