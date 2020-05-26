@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { ipReq } from './constants';
 
-const ipInfo: any = axios.get(ipReq).then(({ data }) => {
+const ipInfo = axios.get(ipReq).then(({ data }) => {
   const location = data.loc.match(/([^,]+)/g);
 
   return {

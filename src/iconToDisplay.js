@@ -1,4 +1,4 @@
-export default function iconToDisplay(code: number) {
+export default function iconToDisplay(code) {
   let picName = 'clear';
   if (code < 300) picName = 'thunder';
   else if (code >= 300 && code < 501) picName = 'rainy1';

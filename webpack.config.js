@@ -11,19 +11,15 @@ module.exports = (env, options) => {
     mode: isProd ? 'production' : 'development',
     devtool: isProd ? 'none' : 'source-map',
     watch: !isProd,
-    entry: ['./src/index.ts', './src/sass/style.scss'],
+    entry: ['./src/index.js', './src/sass/style.scss'],
     output: {
       filename: 'script.js',
       path: path.join(__dirname, 'dist'),
     },
-    resolve: {
-      extensions: ['.tsx', '.ts', '.js'],
-    },
     module: {
       rules: [
         {
-          test: /\.tsx?$/,
-          use: 'ts-loader',
+          test: /\.m?js$/,
           exclude: /node_modules/,
         },
         {
