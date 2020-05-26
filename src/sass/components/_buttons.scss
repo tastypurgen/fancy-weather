@@ -13,3 +13,14 @@
   -ms-user-select: none;
   user-select: none;
 }
+
+.header__degrees__btn-f,
+.header__degrees__btn-c {
+  pointer-events: none;
+  color: yellow;
+}
+
+.active {
+  color: rgb(255, 255, 255);
+  pointer-events: all;
+}

@@ -46,9 +46,9 @@ async function setDisplayInfo() {
   forecastWeekDays[0].textContent = moment().add(1, 'day').format('dddd');
   forecastWeekDays[1].textContent = moment().add(2, 'day').format('dddd');
   forecastWeekDays[2].textContent = moment().add(3, 'day').format('dddd');
-  forecastElements[0].textContent = d0Temp;
-  forecastElements[1].textContent = d1Temp;
-  forecastElements[2].textContent = d2Temp;
+  forecastElements[0].textContent = `${d0Temp}°`;
+  forecastElements[1].textContent = `${d1Temp}°`;
+  forecastElements[2].textContent = `${d2Temp}°`;
   forecastIcons[0].setAttribute('src', d0Icon);
   forecastIcons[1].setAttribute('src', d1Icon);
   forecastIcons[2].setAttribute('src', d2Icon);

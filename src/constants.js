@@ -1,4 +1,5 @@
 export const weatherKey = 'f37843bd6ccdfc2d100eff2f99210f7b';
+export const weatherBitKey = '472f2980ac1a4ec2a3ccfcc6351ba10f';
 
 export const mapKey = 'pk.eyJ1Ijoibmlqb2dvdDUwNiIsImEiOiJja2FlOHh5cWcwMHNwMnlvZ2M3OXU1ZDdoIn0.8PerVZOXYoSi2ZXVO_kLXA';
 

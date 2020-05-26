@@ -14,8 +14,8 @@ export default async function getCurrentMap() {
   const longDeg = longitude.toString().match(/(^[^.]+)/)[0];
   const longMin = convertToMinutes(longitude);
 
-  latitudeEl.textContent = `${latDeg}° ${latMin}'`;
-  longitudeEl.textContent = `${longDeg}° ${longMin}'`;
+  latitudeEl.textContent = `${latDeg}°${latMin}'`;
+  longitudeEl.textContent = `${longDeg}°${longMin}'`;
 
   // eslint-disable-next-line global-require
   const mapboxgl = require('mapbox-gl');
