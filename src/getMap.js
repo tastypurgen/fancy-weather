@@ -1,14 +1,16 @@
 /* eslint-disable no-console */
-import getCurrentCity from './getIpInfo';
 import { mapKey } from './constants';
 import { convertToMinutes } from './utils';
+import getLocationInfo from './getLocationInfo';
 
 const latitudeEl = document.querySelector('.latitude');
 const longitudeEl = document.querySelector('.longitude');
+const searchEl = document.querySelector('.search-container');
+const searchInput = document.querySelector('.search-input');
 
-export default async function getCurrentMap() {
-  const ipInfo = await getCurrentCity();
-  const { latitude, longitude } = ipInfo;
+export default async function getMap(searchedCity) {
+  const { latitude, longitude } = await getLocationInfo(searchedCity);
+  console.log('latitude, longitude: ', latitude, longitude);
   const latDeg = latitude.toString().match(/(^[^.]+)/)[0];
   const latMin = convertToMinutes(latitude);
   const longDeg = longitude.toString().match(/(^[^.]+)/)[0];
@@ -26,6 +28,22 @@ export default async function getCurrentMap() {
     style: 'mapbox://styles/mapbox/streets-v11',
     center: [longitude, latitude],
     zoom: 10,
+  });
+
+  searchEl.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    // setDislpayInfo(searchInput.value);
+    const { latitude: lat, longitude: long } = await getLocationInfo(searchInput.value);
+    console.log(long, lat);
+    map.flyTo({
+      center: [long, lat],
+      zoom: 10,
+      speed: 2,
+      curve: 1,
+      easing(t) {
+        return t;
+      },
+    });
   });
 
   // eslint-disable-next-line no-unused-vars

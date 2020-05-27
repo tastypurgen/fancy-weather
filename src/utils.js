@@ -2,6 +2,7 @@ import setDislayInfo from './setDisplayInfo';
 
 const fBtn = document.querySelector('.header__degrees__btn-f');
 const cBtn = document.querySelector('.header__degrees__btn-c');
+const searchInput = document.querySelector('.search-input');
 
 export function convertToMinutes(num) {
   return parseInt((Number(num.toString().match(/([^.]+$)/)[0].slice(0, 2)) / 1.67).toString(), 10);
@@ -9,7 +10,7 @@ export function convertToMinutes(num) {
 
 export function setLanguage(lang) {
   localStorage.setItem('lang', lang);
-  setDislayInfo();
+  setDislayInfo(searchInput.value);
 }
 
 export function useImperal() {

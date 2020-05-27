@@ -1,15 +1,16 @@
 /* eslint-disable no-console */
 import axios from 'axios';
-import getIpInfo from './getIpInfo';
 import { weatherKey, weatherBitKey } from './constants';
+import getLocationInfo from './getLocationInfo';
 
 
-export default async function getWeather() {
-  const obj = await getIpInfo();
-  const { city } = obj;
+export default async function getWeather(searchedCity) {
+  const { latitude, longitude } = await getLocationInfo(searchedCity);
 
-  const currentWeather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=${localStorage.lang}&units=${localStorage.unitsOW}&APPID=${weatherKey}`);
-  const forecast = await axios.get(`https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&days=3&units=${localStorage.unitsWB}&key=${weatherBitKey}`);
+  const currentWeather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&lang=${localStorage.lang}&units=${localStorage.unitsOW}&APPID=${weatherKey}`);
+  console.log(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&lang=${localStorage.lang}&units=${localStorage.unitsOW}&APPID=${weatherKey}`);
+  const forecast = await axios.get(`https://api.weatherbit.io/v2.0/forecast/daily?lat=${latitude}&lon=${longitude}&days=3&units=${localStorage.unitsWB}&key=${weatherBitKey}`);
+  console.log(`https://api.weatherbit.io/v2.0/forecast/daily?lat=${latitude}&lon=${longitude}&days=3&units=${localStorage.unitsWB}&key=${weatherBitKey}`);
 
   const weather = {
     id: currentWeather.data.weather[0].id,
@@ -27,9 +28,6 @@ export default async function getWeather() {
     d1Icon: `https://www.weatherbit.io/static/img/icons/${forecast.data.data[1].weather.icon}.png`,
     d2Icon: `https://www.weatherbit.io/static/img/icons/${forecast.data.data[2].weather.icon}.png`,
   };
-
-  console.log('Getting weather API');
-  console.log(weather);
 
   return weather;
 }

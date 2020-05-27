@@ -22,14 +22,17 @@ const forecastElements = document.querySelectorAll('.temperature');
 const forecastIcons = document.querySelectorAll('.icon img');
 
 
-async function setDisplayInfo() {
-  const { city, country } = await getLocationInfo();
+async function setDisplayInfo(searchedCity) {
+  const {
+    city, state, country, formatted,
+  } = await getLocationInfo(searchedCity);
   const {
     id, temperature, summary, feel, wind, humidity, d0Temp, d1Temp, d2Temp, d0Icon, d1Icon, d2Icon,
-  } = await getWeather();
+  } = await getWeather(searchedCity);
+
 
   moment.locale(localStorage.lang);
-  cityEl.textContent = `${city}, ${country}`;
+  cityEl.textContent = city ? `${city}, ${country}` : formatted;
   dateEl.textContent = moment().format('dd, MMMM DD');
   setInterval(() => { timeEl.textContent = new Date().toLocaleTimeString('ru'); }, 1000);
   temperatureEl.textContent = temperature;
