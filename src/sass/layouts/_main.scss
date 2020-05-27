@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-around;
 
-  @media (max-width: 750px) {
+  @media (max-width: 790px) {
     display: block;
     margin: 0 auto;
     text-align: center;
@@ -11,14 +11,14 @@
 
   .display {
     margin-top: 50px;
-    @media (max-width: 400px) {
+    @media (max-width: 480px) {
       margin: 0;
     }
     &__city {
       font-size: 1.5rem;
       font-weight: 700;
       margin-left: 5%;
-      @media (max-width: 750px) {
+      @media (max-width: 780px) {
         margin-left: 0;
       }
     }
@@ -28,7 +28,7 @@
       font-size: 0.8rem;
       margin-left: 5%;
       text-transform: capitalize;
-      @media (max-width: 750px) {
+      @media (max-width: 780px) {
         margin-left: 0;
       }
     }
@@ -54,7 +54,7 @@
       margin: 40px 0 0;
       display: flex;
 
-      @media (max-width: 400px) {
+      @media (max-width: 480px) {
         display: block;
       }
 
@@ -103,7 +103,7 @@
       width: 260px;
       font-weight: 300;
 
-      @media (max-width: 400px) {
+      @media (max-width: 480px) {
         width: 150px;
       }
     }
@@ -365,11 +365,11 @@
     height: 300px;
   }
 
-  @media (max-width: 750px) {
+  @media (max-width: 780px) {
     margin: 15px auto 0;
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 480px) {
     width: 250px;
     height: 250px;
   }
@@ -379,7 +379,7 @@
   font-weight: 200;
   text-align: center;
   font-size: 0.9em;
-  margin-left: 35px;
+  margin-left: 2%;
 
   .location-icon img {
     width: 20px;
