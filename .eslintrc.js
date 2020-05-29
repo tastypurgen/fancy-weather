@@ -16,5 +16,6 @@ module.exports = {
   },
   rules: {
     'prefer-destructuring': 0,
+    'max-len': 0,
   },
 };

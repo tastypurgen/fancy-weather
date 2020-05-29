@@ -24,17 +24,25 @@ const forecastIcons = document.querySelectorAll('.icon img');
 
 async function setDisplayInfo(searchedCity) {
   const {
-    city, state, country, formatted,
+    city, country, formatted,
   } = await getLocationInfo(searchedCity);
   const {
-    id, temperature, summary, feel, wind, humidity, d0Temp, d1Temp, d2Temp, d0Icon, d1Icon, d2Icon,
+    id, temperature, summary, feel, wind, humidity, timeZone, d0Temp, d1Temp, d2Temp, d0Icon, d1Icon, d2Icon,
   } = await getWeather(searchedCity);
 
 
   moment.locale(localStorage.lang);
   cityEl.textContent = city ? `${city}, ${country}` : formatted;
   dateEl.textContent = moment().format('dd, MMMM DD');
-  setInterval(() => { timeEl.textContent = new Date().toLocaleTimeString('ru'); }, 1000);
+
+
+  if (searchedCity) {
+    window.clearInterval(window.currentTime);
+    window.currentTime = window.setInterval(() => { timeEl.textContent = new Date().toLocaleTimeString('ru', { timeZone }); }, 1234);
+  } else {
+    window.currentTime = window.setInterval(() => { timeEl.textContent = new Date().toLocaleTimeString('ru', { timeZone }); }, 1000);
+  }
+
   temperatureEl.textContent = temperature;
   iconEl.style.cssText = iconToDisplay(id);
   summaryEl.textContent = localStorage.lang === 'be' ? belWeather[id] : summary;

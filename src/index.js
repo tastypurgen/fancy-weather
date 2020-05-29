@@ -10,9 +10,11 @@ const searchInput = document.querySelector('.search-input');
 
 getMap();
 setDislpayInfo();
+
+if (!localStorage.lang) localStorage.lang = 'en';
 if (!localStorage.unitsOW) localStorage.unitsOW = 'metric';
 if (!localStorage.unitsWB) localStorage.unitsWB = 'M';
-if (!localStorage.lang) localStorage.lang = 'en';
+langBtn.value = localStorage.lang;
 
 if (localStorage.unitsWB === 'm') fBtn.classList.add('active');
 else cBtn.classList.add('active');

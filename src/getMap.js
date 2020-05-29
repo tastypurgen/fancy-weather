@@ -1,4 +1,7 @@
 /* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
+/* eslint-disable global-require */
+
 import { mapKey } from './constants';
 import { convertToMinutes } from './utils';
 import getLocationInfo from './getLocationInfo';
@@ -11,15 +14,14 @@ const searchInput = document.querySelector('.search-input');
 export default async function getMap(searchedCity) {
   const { latitude, longitude } = await getLocationInfo(searchedCity);
   console.log('latitude, longitude: ', latitude, longitude);
-  const latDeg = latitude.toString().match(/(^[^.]+)/)[0];
-  const latMin = convertToMinutes(latitude);
-  const longDeg = longitude.toString().match(/(^[^.]+)/)[0];
-  const longMin = convertToMinutes(longitude);
+  let latDeg = latitude.toString().match(/(^[^.]+)/)[0];
+  let latMin = convertToMinutes(latitude);
+  let longDeg = longitude.toString().match(/(^[^.]+)/)[0];
+  let longMin = convertToMinutes(longitude);
 
   latitudeEl.textContent = `${latDeg}°${latMin}'`;
   longitudeEl.textContent = `${longDeg}°${longMin}'`;
 
-  // eslint-disable-next-line global-require
   const mapboxgl = require('mapbox-gl');
 
   mapboxgl.accessToken = mapKey;
@@ -32,9 +34,17 @@ export default async function getMap(searchedCity) {
 
   searchEl.addEventListener('submit', async (e) => {
     e.preventDefault();
-    // setDislpayInfo(searchInput.value);
+
     const { latitude: lat, longitude: long } = await getLocationInfo(searchInput.value);
-    console.log(long, lat);
+
+    latDeg = lat.toString().match(/(^[^.]+)/)[0];
+    latMin = convertToMinutes(lat);
+    longDeg = long.toString().match(/(^[^.]+)/)[0];
+    longMin = convertToMinutes(long);
+    latitudeEl.textContent = `${latDeg}°${latMin}'`;
+
+    longitudeEl.textContent = `${longDeg}°${longMin}'`;
+
     map.flyTo({
       center: [long, lat],
       zoom: 10,
@@ -44,9 +54,12 @@ export default async function getMap(searchedCity) {
         return t;
       },
     });
+
+    const marker = new mapboxgl.Marker()
+      .setLngLat([long, lat])
+      .addTo(map);
   });
 
-  // eslint-disable-next-line no-unused-vars
   const marker = new mapboxgl.Marker()
     .setLngLat([longitude, latitude])
     .addTo(map);

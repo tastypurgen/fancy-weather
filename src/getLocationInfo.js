@@ -12,11 +12,9 @@ export default async function getLocationInfo(city) {
   let req;
   if (!city) {
     req = await axios.get(`https://api.opencagedata.com/geocode/v1/json?key=b4af77c6278c43fdb54452c961e6edc7&q=${latitude}%2C+${longitude}&pretty=1&no_annotations=1&language=${lang}`);
-    console.log('get info from ip');
     console.log(`https://api.opencagedata.com/geocode/v1/json?key=b4af77c6278c43fdb54452c961e6edc7&q=${latitude}%2C+${longitude}&pretty=1&no_annotations=1&language=${lang}`);
   } else {
     req = await axios.get(`https://api.opencagedata.com/geocode/v1/json?key=b4af77c6278c43fdb54452c961e6edc7&q=${city}&pretty=1&no_annotations=1&language=${lang}`);
-    console.log('get info entered city');
     console.log(`https://api.opencagedata.com/geocode/v1/json?key=b4af77c6278c43fdb54452c961e6edc7&q=${city}&pretty=1&no_annotations=1&language=${lang}`);
   }
 

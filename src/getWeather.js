@@ -19,6 +19,7 @@ export default async function getWeather(searchedCity) {
     feel: parseInt(currentWeather.data.main.feels_like, 10).toString(),
     wind: currentWeather.data.wind.speed,
     humidity: currentWeather.data.main.humidity,
+    timeZone: forecast.data.timezone,
 
     d0Temp: parseInt(forecast.data.data[0].max_temp, 10),
     d1Temp: parseInt(forecast.data.data[1].max_temp, 10),
