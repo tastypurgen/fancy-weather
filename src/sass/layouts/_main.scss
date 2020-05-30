@@ -1,5 +1,5 @@
 .main {
-  margin: 25px;
+  margin: 0 25px 25px;
   display: flex;
   justify-content: space-around;
 
@@ -10,7 +10,7 @@
   }
 
   .display {
-    margin-top: 50px;
+    margin-top: 30px;
     @media (max-width: 480px) {
       margin: 0;
     }

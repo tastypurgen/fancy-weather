@@ -1,7 +1,13 @@
 .header {
   width: 100%;
+  margin-top: 10px;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: space-around;
+
+  .alert-msg {
+    width: 25%;
+  }
 
   @media (max-width: 1020px) {
     justify-content: space-around;

@@ -17,5 +17,6 @@ module.exports = {
   rules: {
     'prefer-destructuring': 0,
     'max-len': 0,
+    'import/no-cycle': 0,
   },
 };

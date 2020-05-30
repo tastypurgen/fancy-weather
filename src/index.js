@@ -21,7 +21,7 @@ else cBtn.classList.add('active');
 
 searchEl.addEventListener('submit', (e) => {
   e.preventDefault();
-  // getMap(searchInput.value);
+  console.log(`Loading ${searchInput.value}`);
   setDislpayInfo(searchInput.value);
 });
 

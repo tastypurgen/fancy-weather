@@ -27,10 +27,25 @@ body {
   background-image: linear-gradient(rgba(18, 18, 50, 0.5) 100%, rgba(18, 18, 50, 0.5) 100%), url("/img/bg-image.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 40px 80px;
   margin: 0 auto;
 
   @media (max-width: 1020px) {
     padding: 0px;
   }
+}
+
+.blur {
+  filter: blur(20px);
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: 1s;
+}
+
+.hidden-slow {
+  opacity: 0;
+  visibility: hidden;
+  transition: 3s;
 }
