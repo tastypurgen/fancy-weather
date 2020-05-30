@@ -6,4 +6,4 @@ export const mapKey = 'pk.eyJ1Ijoibmlqb2dvdDUwNiIsImEiOiJja2FlOHh5cWcwMHNwMnlvZ2
 export const ipKey = 'b4e8e1c3a9acdf';
 export const ipReq = 'https://ipinfo.io/json?token=b4e8e1c3a9acdf';
 
-export default { weatherKey, mapKey, ipKey };
+export const unsplashKey = 'Xk_69PRdxzgHYA7A3Nv2zKBN7z2n4NHZ9SHpA6Iydww';

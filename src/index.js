@@ -1,4 +1,4 @@
-import setDislpayInfo from './setDisplayInfo';
+import updateDisplay from './updateDisplay';
 import getMap from './getMap';
 import { setLanguage, useMetric, useImperal } from './utils';
 
@@ -9,7 +9,7 @@ const searchEl = document.querySelector('.search-container');
 const searchInput = document.querySelector('.search-input');
 
 getMap();
-setDislpayInfo();
+updateDisplay();
 
 if (!localStorage.lang) localStorage.lang = 'en';
 if (!localStorage.unitsOW) localStorage.unitsOW = 'metric';
@@ -21,8 +21,8 @@ else cBtn.classList.add('active');
 
 searchEl.addEventListener('submit', (e) => {
   e.preventDefault();
-  console.log(`Loading ${searchInput.value}`);
-  setDislpayInfo(searchInput.value);
+  console.log(`Loading results for ${searchInput.value}`);
+  updateDisplay(searchInput.value);
 });
 
 langBtn.addEventListener('change', (e) => {

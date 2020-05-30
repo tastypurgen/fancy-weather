@@ -1,10 +1,10 @@
-import setDislayInfo from './setDisplayInfo';
+import setDislayInfo from './updateDisplay';
 
 const fBtn = document.querySelector('.header__degrees__btn-f');
 const cBtn = document.querySelector('.header__degrees__btn-c');
 const searchInput = document.querySelector('.search-input');
-const spinnerSontainer = document.querySelector('.spinner-container');
-const mainEl = document.querySelector('.main');
+const spinnerContainer = document.querySelector('.spinner-container');
+const main = document.querySelector('.main');
 
 export function convertToMinutes(num) {
   return parseInt((Number(num.toString().match(/([^.]+$)/)[0].slice(0, 2)) / 1.67).toString(), 10);
@@ -34,6 +34,6 @@ export function useMetric() {
 }
 
 export function toggleSpinner() {
-  spinnerSontainer.classList.toggle('hidden');
-  mainEl.classList.toggle('blur');
+  spinnerContainer.classList.toggle('hidden');
+  main.classList.toggle('blur');
 }

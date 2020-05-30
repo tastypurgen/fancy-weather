@@ -4,6 +4,7 @@ import getLocationInfo from './getLocationInfo';
 import iconToDisplay from './iconToDisplay';
 import { belWeather, weatherDescription } from './transcript';
 import { toggleSpinner, convertToMinutes } from './utils';
+import setPicture from './setPicture';
 
 const cityEl = document.querySelector('.display__city span');
 const dateEl = document.querySelector('.display__time span');
@@ -28,7 +29,7 @@ const searchInput = document.querySelector('.search-input');
 const alertMsg = document.querySelector('.alert-msg');
 
 
-async function setDisplayInfo(searchedCity) {
+async function updateDisplay(searchedCity) {
   toggleSpinner();
   try {
     const {
@@ -38,17 +39,14 @@ async function setDisplayInfo(searchedCity) {
       id, temperature, summary, feel, wind, humidity, timeZone, d0Temp, d1Temp, d2Temp, d0Icon, d1Icon, d2Icon,
     } = await getWeather(searchedCity);
 
+    setPicture();
+
     moment.locale(localStorage.lang);
     cityEl.textContent = city ? `${city}, ${country}` : formatted;
     dateEl.textContent = moment().format('dd, MMMM DD');
 
-
-    if (searchedCity) {
-      window.clearInterval(window.currentTime);
-      window.currentTime = window.setInterval(() => { timeEl.textContent = new Date().toLocaleTimeString('ru', { timeZone }); }, 1000);
-    } else {
-      window.currentTime = window.setInterval(() => { timeEl.textContent = new Date().toLocaleTimeString('ru', { timeZone }); }, 1000);
-    }
+    window.clearInterval(window.currentTime);
+    window.currentTime = window.setInterval(() => { timeEl.textContent = new Date().toLocaleTimeString('ru', { timeZone }); }, 1000);
 
     temperatureEl.textContent = temperature;
     iconEl.style.cssText = iconToDisplay(id);
@@ -95,7 +93,7 @@ async function setDisplayInfo(searchedCity) {
     // console.log(error);
     alertMsg.classList.remove('hidden-slow');
     alertMsg.textContent = `No results for ${searchInput.value} :(`;
-    setTimeout(() => alertMsg.classList.add('hidden-slow'), 3000);
+    setTimeout(() => alertMsg.classList.add('hidden-slow'), 2000);
   } finally {
     toggleSpinner();
   }
@@ -111,4 +109,4 @@ async function setDisplayInfo(searchedCity) {
   // });
 }
 
-export default setDisplayInfo;
+export default updateDisplay;
