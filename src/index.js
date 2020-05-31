@@ -1,12 +1,17 @@
 import updateDisplay from './updateDisplay';
 import getMap from './getMap';
+import setPicture from './setPicture';
 import { setLanguage, useMetric, useImperal } from './utils';
+import playMusic from './playMusic';
 
 const langBtn = document.querySelector('.header__lang');
 const fBtn = document.querySelector('.header__degrees__btn-f');
 const cBtn = document.querySelector('.header__degrees__btn-c');
 const searchEl = document.querySelector('.search-container');
 const searchInput = document.querySelector('.search-input');
+const reloadBtn = document.querySelector('.header__reload');
+const playBtn = document.querySelector('.play-btn');
+const infoBtn = document.querySelector('.info-btn');
 
 getMap();
 updateDisplay();
@@ -35,4 +40,22 @@ fBtn.addEventListener('click', () => {
 
 cBtn.addEventListener('click', () => {
   useMetric();
+});
+
+reloadBtn.addEventListener('click', () => {
+  setPicture();
+});
+
+playBtn.addEventListener('click', () => {
+  playMusic();
+});
+
+infoBtn.addEventListener('click', () => {
+  alert(`
+  Additional functionality:
+  - Info button :D
+  - Search by ZIP
+  - Music of nostalgia
+  - Sunrise & Sunset
+  `);
 });

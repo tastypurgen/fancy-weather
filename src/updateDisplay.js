@@ -1,9 +1,9 @@
-import * as moment from 'moment';
+import * as moment from 'moment-timezone';
 import getWeather from './getWeather';
 import getLocationInfo from './getLocationInfo';
 import iconToDisplay from './iconToDisplay';
 import { belWeather, weatherDescription } from './transcript';
-import { toggleSpinner, convertToMinutes } from './utils';
+import { toggleSpinner, convertToMinutes, getPlace } from './utils';
 import setPicture from './setPicture';
 
 const cityEl = document.querySelector('.display__city span');
@@ -27,22 +27,25 @@ const latitudeEl = document.querySelector('.latitude');
 const longitudeEl = document.querySelector('.longitude');
 const searchInput = document.querySelector('.search-input');
 const alertMsg = document.querySelector('.alert-msg');
+const sunriseEl = document.querySelector('.sunrise span');
+const sunsetEl = document.querySelector('.sunset span');
 
 
 async function updateDisplay(searchedCity) {
   toggleSpinner();
   try {
     const {
-      city, country, formatted,
+      suburb, city, county, state, country,
     } = await getLocationInfo(searchedCity);
     const {
-      id, temperature, summary, feel, wind, humidity, timeZone, d0Temp, d1Temp, d2Temp, d0Icon, d1Icon, d2Icon,
+      id, temperature, summary, feel, wind, humidity, timeZone, sunrise, sunset, d0Temp, d1Temp, d2Temp, d0Icon, d1Icon, d2Icon,
     } = await getWeather(searchedCity);
 
     setPicture();
 
+
     moment.locale(localStorage.lang);
-    cityEl.textContent = city ? `${city}, ${country}` : formatted;
+    cityEl.textContent = getPlace(suburb, city, county, state, country);
     dateEl.textContent = moment().format('dd, MMMM DD');
 
     window.clearInterval(window.currentTime);
@@ -69,6 +72,8 @@ async function updateDisplay(searchedCity) {
     forecastIcons[1].setAttribute('src', d1Icon);
     forecastIcons[2].setAttribute('src', d2Icon);
 
+    sunriseEl.textContent = moment.unix(sunrise).tz(timeZone).format('HH:mm');
+    sunsetEl.textContent = moment.unix(sunset).tz(timeZone).format('HH:mm');
 
     const { latitude: lat, longitude: long } = await getLocationInfo(searchInput.value);
 

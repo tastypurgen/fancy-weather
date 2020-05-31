@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import axios from 'axios';
 import { weatherKey, weatherBitKey } from './constants';
 import getLocationInfo from './getLocationInfo';
@@ -20,6 +19,8 @@ export default async function getWeather(searchedCity) {
     wind: currentWeather.data.wind.speed,
     humidity: currentWeather.data.main.humidity,
     timeZone: forecast.data.timezone,
+    sunrise: currentWeather.data.sys.sunrise,
+    sunset: currentWeather.data.sys.sunset,
 
     d0Temp: parseInt(forecast.data.data[0].max_temp, 10),
     d1Temp: parseInt(forecast.data.data[1].max_temp, 10),

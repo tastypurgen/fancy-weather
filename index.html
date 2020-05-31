@@ -22,13 +22,14 @@
         <div class="header__degrees__btn header__degrees__btn-f btn">°F</div>
         <div class="header__degrees__btn header__degrees__btn-c btn">°C</div>
       </div>
+      <div class="play-btn btn"></div>
+      <div class="info-btn btn">?</div>
     </div>
 
     <div class="alert-msg hidden-slow"></div>
 
     <form class="search-container">
-      <input type="text" name="city" class="search-input" placeholder="Search a city" autocomplete="off">
-      <div class="search-voice"></div>
+      <input type="text" name="city" class="search-input" placeholder="Search a city or ZIP" autocomplete="off">
       <button class="search-btn btn" type="submit">Search</button>
     </form>
   </header>
@@ -75,6 +76,16 @@
     </div>
 
     <div class="location">
+      <div class="suntime">
+        <div class="sunrise">
+          <img src="/img/sunrise.png" alt="sunrise">
+          <span class="text"></span>
+        </div>
+        <div class="sunset">
+          <img src="/img/sunset.png" alt="sunset">
+          <span class="text"></span>
+        </div>
+      </div>
       <div id="map"></div>
       <div class="coords">
         <span class="location-icon">

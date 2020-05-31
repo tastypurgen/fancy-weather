@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import axios from 'axios';
 import getCurrentCity from './getIpInfo';
 
@@ -18,11 +17,12 @@ export default async function getLocationInfo(city) {
       req = await axios.get(`https://api.opencagedata.com/geocode/v1/json?key=b4af77c6278c43fdb54452c961e6edc7&q=${city}&pretty=1&no_annotations=1&language=${lang}`);
       console.log(`https://api.opencagedata.com/geocode/v1/json?key=b4af77c6278c43fdb54452c961e6edc7&q=${city}&pretty=1&no_annotations=1&language=${lang}`);
     }
-
     const locationInfo = {
-      country: req.data.results[0].components.country,
-      state: req.data.results[0].components.state,
+      suburb: req.data.results[0].components.suburb,
       city: req.data.results[0].components.city,
+      county: req.data.results[0].components.county,
+      state: req.data.results[0].components.state,
+      country: req.data.results[0].components.country,
       formatted: req.data.results[0].formatted,
       latitude: req.data.results[0].geometry.lat,
       longitude: req.data.results[0].geometry.lng,

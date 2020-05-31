@@ -37,3 +37,15 @@ export function toggleSpinner() {
   spinnerContainer.classList.toggle('hidden');
   main.classList.toggle('blur');
 }
+
+export function getPlace(suburb, city, county, state, country) {
+  const result = [];
+
+  if (suburb) result.push(suburb);
+  if (city) result.push(city);
+  else if (county) result.push(county);
+  else if (state) result.push(state);
+  if (country) result.push(country);
+
+  return result.join(', ');
+}

@@ -18,5 +18,6 @@ module.exports = {
     'prefer-destructuring': 0,
     'max-len': 0,
     'import/no-cycle': 0,
+    'no-console': 0,
   },
 };

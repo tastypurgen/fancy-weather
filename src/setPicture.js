@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import axios from 'axios';
 import { unsplashKey } from './constants';
 
@@ -61,7 +60,7 @@ switch (date.getHours()) {
 
 export default async function setPicture() {
   try {
-    const req = await axios.get(`https://api.unsplash.com/photos/random?orientation=landscape&per_page=1&query=${season},${time}&client_id=${unsplashKey}`);
+    const req = await axios.get(`https://api.unsplash.com/photos/random?orientation=landscape&per_page=1&query=nature,${season},${time}&client_id=${unsplashKey}`);
     console.log(`Loading picture with tags: ${season}, ${time}`);
     const img = req.data.urls.regular;
     body.style.cssText = `background-image: linear-gradient(rgba(18, 18, 50, 0.5) 100%, rgba(18, 18, 50, 0.5) 100%), url("${img}")`;
