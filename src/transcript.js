@@ -56,7 +56,7 @@ export const belWeather = {
 };
 
 export const weatherDescription = {
-  en: ['Feels like', 'Wind', 'm/s', 'Humidity'],
-  ru: ['Ощущается как', 'Ветер', 'м/с', 'Влажность'],
-  be: ['Aдчуваецца як', 'Вецер', 'м/с', 'Вільготнасць'],
+  en: ['Feels like', 'Wind', 'm/s', 'Humidity', 'Search City or ZIP'],
+  ru: ['Ощущается как', 'Ветер', 'м/с', 'Влажность', 'Поиск по городу'],
+  be: ['Aдчуваецца як', 'Вецер', 'м/с', 'Вільготнасць', 'Пошук па горадзе'],
 };

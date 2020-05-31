@@ -6,6 +6,7 @@ import { belWeather, weatherDescription } from './transcript';
 import { toggleSpinner, convertToMinutes, getPlace } from './utils';
 import setPicture from './setPicture';
 
+
 const cityEl = document.querySelector('.display__city span');
 const dateEl = document.querySelector('.display__time span');
 const timeEl = document.querySelector('.display__time span + span');
@@ -58,6 +59,7 @@ async function updateDisplay(searchedCity) {
     windEl.textContent = weatherDescription[localStorage.lang][1];
     windVal2.textContent = weatherDescription[localStorage.lang][2];
     humidityEl.textContent = weatherDescription[localStorage.lang][3];
+    searchInput.placeholder = weatherDescription[localStorage.lang][4];
     feelVal.textContent = feel;
     windVal.textContent = wind;
     humidityVal.textContent = humidity;

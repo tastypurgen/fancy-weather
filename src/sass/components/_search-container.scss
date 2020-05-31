@@ -38,11 +38,15 @@
   }
 
   .search-btn {
-    width: 100px;
+    width: 60px;
     height: 44px;
     border-radius: 0 5px 5px 0;
     border: 0;
-    background: rgba(174, 181, 185, 0.5);
+    background-color: rgba(174, 181, 185, 0.5);
+    background-image: url("/img/search.png");
+    background-position: center;
+    background-size: 24px;
+    background-repeat: no-repeat;
     font-size: 14px;
     line-height: 17px;
     text-align: center;
