@@ -7,9 +7,7 @@ export default async function getWeather(searchedCity) {
   const { latitude, longitude } = await getLocationInfo(searchedCity);
 
   const currentWeather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&lang=${localStorage.lang}&units=${localStorage.unitsOW}&APPID=${weatherKey}`);
-  console.log(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&lang=${localStorage.lang}&units=${localStorage.unitsOW}&APPID=${weatherKey}`);
   const forecast = await axios.get(`https://api.weatherbit.io/v2.0/forecast/daily?lat=${latitude}&lon=${longitude}&days=3&units=${localStorage.unitsWB}&key=${weatherBitKey}`);
-  console.log(`https://api.weatherbit.io/v2.0/forecast/daily?lat=${latitude}&lon=${longitude}&days=3&units=${localStorage.unitsWB}&key=${weatherBitKey}`);
 
   const weather = {
     id: currentWeather.data.weather[0].id,

@@ -26,7 +26,6 @@ else cBtn.classList.add('active');
 
 searchEl.addEventListener('submit', (e) => {
   e.preventDefault();
-  console.log(`Loading results for ${searchInput.value}`);
   updateDisplay(searchInput.value);
 });
 
@@ -55,7 +54,7 @@ infoBtn.addEventListener('click', () => {
   Additional functionality:
   - Info button :D
   - Search by ZIP
-  - Music of nostalgia
+  - Peaceful music
   - Sunrise & Sunset
   `);
 });

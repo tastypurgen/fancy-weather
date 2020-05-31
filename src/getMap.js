@@ -12,7 +12,6 @@ const searchInput = document.querySelector('.search-input');
 
 export default async function getMap(searchedCity) {
   const { latitude, longitude } = await getLocationInfo(searchedCity);
-  console.log('latitude, longitude: ', latitude, longitude);
   const latDeg = latitude.toString().match(/(^[^.]+)/)[0];
   const latMin = convertToMinutes(latitude);
   const longDeg = longitude.toString().match(/(^[^.]+)/)[0];
@@ -31,13 +30,7 @@ export default async function getMap(searchedCity) {
     zoom: 9,
   });
 
-  searchEl.addEventListener('submit', async (e) => {
-    e.preventDefault();
-  });
-
   const marker = new mapboxgl.Marker()
     .setLngLat([longitude, latitude])
     .addTo(window.map);
-
-  console.log('Getting MAP');
 }

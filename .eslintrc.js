@@ -19,5 +19,6 @@ module.exports = {
     'max-len': 0,
     'import/no-cycle': 0,
     'no-console': 0,
+    'no-alert': 0,
   },
 };

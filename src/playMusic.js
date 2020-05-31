@@ -15,5 +15,6 @@ export default function playMusic() {
 
   audio.addEventListener('ended', () => {
     playBtn.classList.toggle('pause-btn');
+    isPlaying = false;
   }, false);
 }
