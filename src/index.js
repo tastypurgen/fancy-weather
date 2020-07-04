@@ -11,7 +11,6 @@ const searchEl = document.querySelector('.search-container');
 const searchInput = document.querySelector('.search-input');
 const reloadBtn = document.querySelector('.header__reload');
 const playBtn = document.querySelector('.play-btn');
-const infoBtn = document.querySelector('.info-btn');
 
 getMap();
 updateDisplay();
@@ -47,14 +46,4 @@ reloadBtn.addEventListener('click', () => {
 
 playBtn.addEventListener('click', () => {
   playMusic();
-});
-
-infoBtn.addEventListener('click', () => {
-  alert(`
-  Additional functionality:
-  - Info button :D
-  - Search by ZIP
-  - Peaceful music
-  - Sunrise & Sunset
-  `);
 });
