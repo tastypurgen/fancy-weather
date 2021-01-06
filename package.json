@@ -4,7 +4,7 @@
   "description": "RSSchool task",
   "private": true,
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "mapbox-gl": "^1.11.0",
     "moment": "^2.27.0",
     "moment-timezone": "^0.5.31"
