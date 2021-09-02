@@ -9,12 +9,12 @@ module.exports = (env, options) => {
 
   const config = {
     mode: isProd ? 'production' : 'development',
-    devtool: isProd ? 'none' : 'source-map',
+    devtool: isProd ? false : 'source-map',
     watch: !isProd,
     entry: ['./src/index.js', './src/sass/style.scss'],
     output: {
+      path: path.join(__dirname, '../build'),
       filename: 'script.js',
-      path: path.join(__dirname, 'dist'),
     },
     module: {
       rules: [
@@ -48,10 +48,11 @@ module.exports = (env, options) => {
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({ template: 'index.html' }),
       new MiniCssExtractPlugin({ filename: 'style.css' }),
-      new CopyPlugin([
-        { from: './src/img', to: './img' },
-        // { from: 'other', to: 'public' },
-      ]),
+      new CopyPlugin({
+        patterns: [
+          { from: './src/img', to: './img' },
+        ],
+      }),
     ],
 
   };
