@@ -1,4 +1,5 @@
-npm run build
+echo build started
+call npm run build
 cd ../build
 dir
-PAUSE
+start node server.js

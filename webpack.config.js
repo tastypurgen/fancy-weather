@@ -11,7 +11,7 @@ module.exports = (env, options) => {
     mode: isProd ? 'production' : 'development',
     devtool: isProd ? false : 'source-map',
     watch: !isProd,
-    entry: ['./src/index.js', './src/sass/style.scss'],
+    entry: ['./src/script.js', './src/sass/style.scss'],
     output: {
       path: path.join(__dirname, '../build'),
       filename: 'script.js',
@@ -51,6 +51,7 @@ module.exports = (env, options) => {
       new CopyPlugin({
         patterns: [
           { from: './src/img', to: './img' },
+          { from: './server', to: './' },
         ],
       }),
     ],
